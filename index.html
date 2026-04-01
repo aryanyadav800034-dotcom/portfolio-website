@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aryan Yadav — AI/ML Engineer & Full-Stack Developer</title>
+  <meta name="description" content="Portfolio of Aryan Yadav — BTech CSE student at Poornima University specializing in AI/ML, LLMs, and full-stack development." />
+  <meta name="keywords" content="Aryan Yadav, AI ML Engineer, Full Stack Developer, Portfolio, Python, Django, PyTorch, LLM" />
+  <meta name="author" content="Aryan Yadav" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Aryan Yadav — AI/ML Engineer" />
+  <meta property="og:description" content="Building intelligent software that bridges AI and real-world impact." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══ LOADING SCREEN ═══ -->
+  <div id="loader">
+    <canvas id="loader-canvas"></canvas>
+    <div class="loader-content">
+      <div class="loader-logo">AY</div>
+      <div class="loader-text">Initializing Neural Network<span class="dots">...</span></div>
+      <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ═══ CUSTOM CURSOR ═══ -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ═══ MATRIX RAIN EASTER EGG ═══ -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="logo-bracket">&lt;</span>AY<span class="logo-bracket">/&gt;</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero" class="nav-link" data-section="hero">Home</a></li>
+      <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+      <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+      <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+      <li><a href="#certifications" class="nav-link" data-section="certifications">Certs</a></li>
+      <li><a href="#education" class="nav-link" data-section="education">Education</a></li>
+      <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══ HERO SECTION ═══ -->
+  <section id="hero" class="section">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-particles" id="particles-container"></div>
+
+    <div class="hero-content">
+      <div class="hero-greeting">
+        <span class="greeting-line"></span>
+        <span class="greeting-text">Hello, I'm</span>
+        <span class="greeting-line"></span>
+      </div>
+      <h1 class="hero-name">
+        <span class="name-first">Aryan</span>
+        <span class="name-last">Yadav</span>
+      </h1>
+      <div class="hero-title-wrapper">
+        <span class="title-prefix">I am a </span>
+        <span class="typewriter-text" id="typewriter"></span>
+        <span class="cursor-blink">|</span>
+      </div>
+      <p class="hero-subtitle">Building intelligent software that bridges AI and real-world impact</p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          <span class="btn-text">View My Work</span>
+          <span class="btn-glow"></span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="resume.pdf" class="btn btn-secondary" download id="download-resume">
+          <span class="btn-text">Download Resume</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-socials">
+        <a href="https://github.com/aryanyadav800034-dotcom" target="_blank" class="social-link" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/aryan-yadav-55051a38b" target="_blank" class="social-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:aryanyadav8000340@gmail.com" class="social-link" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+        <a href="tel:8000340103" class="social-link" aria-label="Phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.0 1.17 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
+        </a>
+      </div>
+
+      <div class="scroll-hint">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll to explore</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT SECTION ═══ -->
+  <section id="about" class="section">
+    <div class="section-header">
+      <span class="section-tag">// about me</span>
+      <h2 class="section-title">Who I Am</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-avatar-wrapper" id="about-3d">
+        <div class="avatar-ring ring-1"></div>
+        <div class="avatar-ring ring-2"></div>
+        <div class="avatar-ring ring-3"></div>
+        <div class="avatar-core">
+          <div class="avatar-icon">🤖</div>
+          <div class="avatar-label">AI Builder</div>
+        </div>
+        <div class="floating-tag tag-1">Python</div>
+        <div class="floating-tag tag-2">PyTorch</div>
+        <div class="floating-tag tag-3">Django</div>
+        <div class="floating-tag tag-4">LLMs</div>
+      </div>
+
+      <div class="about-content">
+        <p class="about-bio">
+          I'm a <strong>BTech Computer Science</strong> student at Poornima University, Jaipur, 
+          deeply passionate about the intersection of <span class="highlight">Artificial Intelligence</span> 
+          and real-world software engineering. I build end-to-end intelligent systems — from training 
+          PyTorch models to deploying full-stack Django APIs.
+        </p>
+        <p class="about-bio">
+          My work spans <span class="highlight">LLM integration</span>, voice-activated AI assistants, 
+          audio signal processing, and full-stack platforms with AI agent backends. I believe great 
+          technology should be both <span class="highlight">powerful and purposeful</span>.
+        </p>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" data-target="3" id="stat-certs">0</div>
+            <div class="stat-label">Oracle Certifications</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="3" id="stat-projects">0</div>
+            <div class="stat-label">Major Projects</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="stat-year">2<span>nd</span></div>
+            <div class="stat-label">Year BTech</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="10" id="stat-skills">0</div>
+            <div class="stat-label">Technologies</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SKILLS SECTION ═══ -->
+  <section id="skills" class="section">
+    <div class="section-header">
+      <span class="section-tag">// tech stack</span>
+      <h2 class="section-title">Skills & Arsenal</h2>
+    </div>
+    <div class="skills-orbit-container" id="skills-orbit">
+      <canvas id="skills-canvas"></canvas>
+      <div class="skills-center-label">
+        <span class="skills-center-icon">⚡</span>
+        <span>Tech Stack</span>
+      </div>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-category">
+        <div class="category-header">
+          <span class="category-icon">💻</span>
+          <h3>Languages</h3>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Python ⭐</span>
+          <span class="skill-tag">C</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">HTML/CSS</span>
+          <span class="skill-tag">TypeScript</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="category-header">
+          <span class="category-icon">🔧</span>
+          <h3>Frameworks</h3>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">Django</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">Matplotlib</span>
+          <span class="skill-tag">scikit-learn</span>
+          <span class="skill-tag primary">PyTorch</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="category-header">
+          <span class="category-icon">🗄️</span>
+          <h3>Databases</h3>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag primary">MongoDB</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="category-header">
+          <span class="category-icon">🤖</span>
+          <h3>AI / Tools</h3>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">LLMs</span>
+          <span class="skill-tag">Prompt Engineering</span>
+          <span class="skill-tag">MCP Servers</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">REST APIs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECTS SECTION ═══ -->
+  <section id="projects" class="section">
+    <div class="section-header">
+      <span class="section-tag">// portfolio</span>
+      <h2 class="section-title">Featured Projects</h2>
+    </div>
+    <div class="projects-grid">
+
+      <!-- Luna -->
+      <div class="project-card-wrapper" data-project="luna">
+        <div class="project-card" id="card-luna">
+          <div class="card-front">
+            <div class="card-glow glow-purple"></div>
+            <div class="card-icon">🤖</div>
+            <h3 class="card-title">Luna</h3>
+            <p class="card-subtitle">AI Personal Assistant</p>
+            <div class="card-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">REST APIs</span>
+              <span class="stack-tag">Audio Eng.</span>
+            </div>
+            <div class="card-hint">Hover to reveal →</div>
+          </div>
+          <div class="card-back back-purple">
+            <div class="card-glow glow-purple"></div>
+            <h3 class="card-back-title">Luna — AI Assistant</h3>
+            <ul class="card-highlights">
+              <li>🎙️ Wake-word detection for hands-free control</li>
+              <li>🧠 LLM backend for context-aware responses</li>
+              <li>🌐 Web automation, music & real-time news</li>
+              <li>⚙️ Async audio recording & playback engine</li>
+            </ul>
+            <div class="card-links">
+              <a href="https://github.com/aryanyadav800034-dotcom" target="_blank" class="card-btn">View Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SonicLaunch -->
+      <div class="project-card-wrapper" data-project="sonic">
+        <div class="project-card" id="card-sonic">
+          <div class="card-front">
+            <div class="card-glow glow-green"></div>
+            <div class="card-icon">🎵</div>
+            <h3 class="card-title">SonicLaunch</h3>
+            <p class="card-subtitle">Audio Trigger Automation</p>
+            <div class="card-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">NumPy</span>
+              <span class="stack-tag">SoundDevice</span>
+            </div>
+            <div class="card-hint">Hover to reveal →</div>
+          </div>
+          <div class="card-back back-green">
+            <div class="card-glow glow-green"></div>
+            <h3 class="card-back-title">SonicLaunch</h3>
+            <ul class="card-highlights">
+              <li>👏 Real-time audio processing with clap triggers</li>
+              <li>📊 L2 normalization to filter background noise</li>
+              <li>🚀 Auto-launches VS Code, Claude & Zen Browser</li>
+              <li>⚡ Subprocess API for zero manual setup</li>
+            </ul>
+            <div class="card-links">
+              <a href="https://github.com/aryanyadav800034-dotcom" target="_blank" class="card-btn">View Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TalentTrek -->
+      <div class="project-card-wrapper" data-project="talenttrek">
+        <div class="project-card" id="card-trek">
+          <div class="card-front">
+            <div class="card-glow glow-orange"></div>
+            <div class="card-icon">🚀</div>
+            <h3 class="card-title">TalentTrek</h3>
+            <p class="card-subtitle">Micro-Internship Platform</p>
+            <div class="card-stack">
+              <span class="stack-tag">Django</span>
+              <span class="stack-tag">MongoDB</span>
+              <span class="stack-tag">AI Agents</span>
+            </div>
+            <div class="card-hint">Hover to reveal →</div>
+          </div>
+          <div class="card-back back-orange">
+            <div class="card-glow glow-orange"></div>
+            <h3 class="card-back-title">TalentTrek</h3>
+            <ul class="card-highlights">
+              <li>🎯 Full-stack student-startup matching platform</li>
+              <li>🔐 JWT-authenticated Django REST API backend</li>
+              <li>🤖 AI Agents: Matchmaking, Resume Analyzer, Recommender</li>
+              <li>👥 Led 3-person founding team to production</li>
+            </ul>
+            <div class="card-links">
+              <a href="https://github.com/aryanyadav800034-dotcom" target="_blank" class="card-btn">View Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CERTIFICATIONS SECTION ═══ -->
+  <section id="certifications" class="section">
+    <div class="section-header">
+      <span class="section-tag">// achievements</span>
+      <h2 class="section-title">Certifications</h2>
+    </div>
+    <div class="certs-grid">
+
+      <div class="cert-card" id="cert-1">
+        <div class="cert-glow glow-gold"></div>
+        <div class="cert-badge" data-tier="gold">
+          <div class="cert-badge-inner">
+            <div class="cert-badge-icon">🏆</div>
+            <div class="cert-badge-ring"></div>
+          </div>
+        </div>
+        <div class="cert-content">
+          <div class="cert-issuer">
+            <span style="font-size:1rem;opacity:0.5">✦</span>
+            Oracle
+          </div>
+          <h3 class="cert-name">AI Foundations</h3>
+          <p class="cert-desc">Foundational concepts of Artificial Intelligence, machine learning, and AI applications in enterprise contexts.</p>
+          <span class="cert-badge-label gold-badge">Gold Badge</span>
+        </div>
+        <div class="cert-particles"></div>
+      </div>
+
+      <div class="cert-card" id="cert-2">
+        <div class="cert-glow glow-silver"></div>
+        <div class="cert-badge" data-tier="silver">
+          <div class="cert-badge-inner">
+            <div class="cert-badge-icon">🥈</div>
+            <div class="cert-badge-ring"></div>
+          </div>
+        </div>
+        <div class="cert-content">
+          <div class="cert-issuer"><span style="font-size:1rem;opacity:0.5">✦</span> Oracle</div>
+          <h3 class="cert-name">AI Data Science</h3>
+          <p class="cert-desc">Data science methodologies, statistical analysis, and AI-driven insights for business intelligence.</p>
+          <span class="cert-badge-label silver-badge">Silver Badge</span>
+        </div>
+        <div class="cert-particles"></div>
+      </div>
+
+      <div class="cert-card" id="cert-3">
+        <div class="cert-glow glow-bronze"></div>
+        <div class="cert-badge" data-tier="bronze">
+          <div class="cert-badge-inner">
+            <div class="cert-badge-icon">🥉</div>
+            <div class="cert-badge-ring"></div>
+          </div>
+        </div>
+        <div class="cert-content">
+          <div class="cert-issuer"><span style="font-size:1rem;opacity:0.5">✦</span> Oracle</div>
+          <h3 class="cert-name">Generative AI</h3>
+          <p class="cert-desc">Generative AI models, LLMs, prompt engineering techniques, and practical GenAI application development.</p>
+          <span class="cert-badge-label bronze-badge">Bronze Badge</span>
+        </div>
+        <div class="cert-particles"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ EDUCATION SECTION ═══ -->
+  <section id="education" class="section">
+    <div class="section-header">
+      <span class="section-tag">// background</span>
+      <h2 class="section-title">Education</h2>
+    </div>
+    <div class="education-timeline">
+      <div class="timeline-line"></div>
+      <div class="timeline-item" id="edu-1">
+        <div class="timeline-dot">
+          <div class="timeline-dot-inner"></div>
+        </div>
+        <div class="timeline-card">
+          <div class="timeline-card-glow"></div>
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-title">B.Tech — Computer Science & Engineering</h3>
+              <div class="timeline-institution">🎓 Poornima University, Jaipur, Rajasthan</div>
+            </div>
+            <div class="timeline-date">
+              <span>2023</span>
+              <span class="date-arrow">→</span>
+              <span class="date-present">Present</span>
+            </div>
+          </div>
+          <div class="timeline-coursework">
+            <span class="course-chip">Data Structures</span>
+            <span class="course-chip">Algorithms</span>
+            <span class="course-chip">DBMS</span>
+            <span class="course-chip">Operating Systems</span>
+            <span class="course-chip">Machine Learning</span>
+            <span class="course-chip">Computer Networks</span>
+          </div>
+          <div class="timeline-highlight">
+            <span class="highlight-icon">⚡</span>
+            Specialization in AI/ML with hands-on project experience in LLMs and full-stack development
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT SECTION ═══ -->
+  <section id="contact" class="section">
+    <div class="section-header">
+      <span class="section-tag">// get in touch</span>
+      <h2 class="section-title">Contact Me</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3 class="contact-tagline">Let's Build Something <span class="highlight">Extraordinary</span></h3>
+        <p class="contact-desc">
+          I'm always open to discussing new projects, internship opportunities, or collaborations 
+          in AI/ML and full-stack development.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:aryanyadav8000340@gmail.com" class="contact-link-item" id="contact-email">
+            <div class="contact-link-icon">📧</div>
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-value">aryanyadav8000340@gmail.com</div>
+            </div>
+          </a>
+          <a href="tel:8000340103" class="contact-link-item" id="contact-phone">
+            <div class="contact-link-icon">📱</div>
+            <div>
+              <div class="contact-link-label">Phone</div>
+              <div class="contact-link-value">8000340103</div>
+            </div>
+          </a>
+          <a href="https://github.com/aryanyadav800034-dotcom" target="_blank" class="contact-link-item" id="contact-github">
+            <div class="contact-link-icon">🐙</div>
+            <div>
+              <div class="contact-link-label">GitHub</div>
+              <div class="contact-link-value">aryanyadav800034-dotcom</div>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/aryan-yadav-55051a38b" target="_blank" class="contact-link-item" id="contact-linkedin">
+            <div class="contact-link-icon">💼</div>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-value">aryan-yadav-55051a38b</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <div class="holographic-form">
+          <div class="form-holo-glow"></div>
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="contact-name" class="form-label">Your Name</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="John Doe" required />
+              <div class="input-glow"></div>
+            </div>
+            <div class="form-group">
+              <label for="contact-email-input" class="form-label">Email Address</label>
+              <input type="email" id="contact-email-input" class="form-input" placeholder="john@example.com" required />
+              <div class="input-glow"></div>
+            </div>
+            <div class="form-group">
+              <label for="contact-subject" class="form-label">Subject</label>
+              <input type="text" id="contact-subject" class="form-input" placeholder="Let's collaborate on..." required />
+              <div class="input-glow"></div>
+            </div>
+            <div class="form-group">
+              <label for="contact-message" class="form-label">Message</label>
+              <textarea id="contact-message" class="form-textarea" placeholder="Tell me about your project..." rows="4" required></textarea>
+              <div class="input-glow"></div>
+            </div>
+            <button type="submit" class="submit-btn" id="submit-btn">
+              <span class="submit-text">Send Message</span>
+              <span class="submit-rocket">🚀</span>
+              <div class="submit-glow"></div>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <span class="logo-bracket">&lt;</span>AY<span class="logo-bracket">/&gt;</span>
+      </div>
+      <p class="footer-text">Crafted with ⚡ by Aryan Yadav • © 2024 All rights reserved</p>
+      <p class="footer-secret" id="footer-secret">🎮 Try the Konami Code for a surprise...</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
